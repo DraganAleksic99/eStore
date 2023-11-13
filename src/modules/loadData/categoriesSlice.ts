@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import Axios from 'axios';
 
-const url = 'https://my-json-server.typicode.com/DraganAleksic99/estore/api/categories';
+const url = 'https://my-json-server.typicode.com/DraganAleksic99/estore/categories';
 
 const sendRequest = (method: string, url: string) => Axios.request({method, url});
 
