@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type { Product } from '../../types';
 
-const url = 'https://my-json-server.typicode.com/DraganAleksic99/estore';
+const url = 'https://my-json-server.typicode.com/DraganAleksic99/estore/';
 
 export const api = createApi({
     baseQuery: fetchBaseQuery({baseUrl: url}),
