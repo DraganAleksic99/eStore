@@ -5,7 +5,7 @@ const protocol = "http";
 const hostname = "localhost";
 const port = 3500;
 
-const url = `${protocol}://${hostname}:${port}/api/categories`;
+const url = 'https://my-json-server.typicode.com/DraganAleksic99/packt/api/categories';
 
 const sendRequest = (method: string, url: string) => Axios.request({method, url});
 

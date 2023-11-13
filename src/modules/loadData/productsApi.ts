@@ -5,7 +5,7 @@ const protocol = "http";
 const hostname = "localhost";
 const port = 3500;
 
-const url = `${protocol}://${hostname}:${port}/api/`;
+const url = 'https://my-json-server.typicode.com/DraganAleksic99/packt/api';
 
 export const api = createApi({
     baseQuery: fetchBaseQuery({baseUrl: url}),
