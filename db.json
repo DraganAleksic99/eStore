@@ -119,62 +119,6 @@
             "category": "Watersports",
             "description": "Description",
             "price": 100
-        },
-        {
-            "id": 1,
-            "name": "Name",
-            "category": "Watersports",
-            "description": "Description",
-            "price": 100
-        },
-        {
-            "id": 1,
-            "name": "Name",
-            "category": "Watersports",
-            "description": "Description",
-            "price": 100
-        },
-        {
-            "id": 1,
-            "name": "Name",
-            "category": "Watersports",
-            "description": "Description",
-            "price": 100
-        },
-        {
-            "id": 1,
-            "name": "Name",
-            "category": "Watersports",
-            "description": "Description",
-            "price": 100
-        },
-        {
-            "id": 1,
-            "name": "Name",
-            "category": "Watersports",
-            "description": "Description",
-            "price": 100
-        },
-        {
-            "id": 1,
-            "name": "Name",
-            "category": "Watersports",
-            "description": "Description",
-            "price": 100
-        },
-        {
-            "id": 1,
-            "name": "Name",
-            "category": "Watersports",
-            "description": "Description",
-            "price": 100
-        },
-        {
-            "id": 1,
-            "name": "Name",
-            "category": "Watersports",
-            "description": "Description",
-            "price": 100
         }
     ]
 }
