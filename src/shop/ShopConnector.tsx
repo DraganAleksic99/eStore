@@ -18,7 +18,7 @@ const filterProducts = (products: Product[] = [], category?: string) =>
 
 export const ShopConnector = () => {
     const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(25);
+    const [limit, setLimit] = useState(5);
     const [sort, setSort] = useState('name');
     const dispatch: AppDispatch = useAppDispatch();
     
