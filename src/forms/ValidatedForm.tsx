@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { ValidationError } from './ValidationError';
 import { getMessages } from './ValidationMessages';
-import { useAddNewOrderMutation } from "../modules/orders/ordersApi";
 
 type ModelItem = {
     label: string

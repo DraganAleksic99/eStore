@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { CartDetailsRows } from './CartDetailsRows';
-import { useSelector } from "react-redux";
-import { cartItemsSelector } from "../modules/cart/selectors";
 import { CartItem } from "../modules/cart/slice";
 
 type CartDetailsProps = {

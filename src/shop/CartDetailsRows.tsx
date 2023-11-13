@@ -1,9 +1,8 @@
 import React from 'react';
 import { CartItem } from '../modules/cart/slice';
 import { updateCartQuantity, removeFromCart } from '../modules/cart/slice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Product } from '../types';
-import { cartPriceSelector, cartSelector } from '../modules/cart/selectors';
 
 type CartDetailsRowsProps = {
     cartPrice: number
