@@ -9,7 +9,7 @@ import { AppDispatch, useAppDispatch } from "../store";
 import { fetchCategories } from "../modules/loadData/categoriesSlice";
 import { useGetProductsQuery } from "../modules/loadData/productsApi";
 import { Checkout } from "./Checkout";
-import { Thanks } from "./Thanks";
+// import { Thanks } from "./Thanks";
 
 const filterProducts = (products: Product[] = [], category?: string) =>
  (!category || category === "All")
@@ -57,8 +57,8 @@ export const ShopConnector = () => {
         <Route path="/shop/checkout" render={ routeProps =>
             <Checkout { ...routeProps } cart={cart} /> } />
 
-        <Route path="/shop/thanks" render={ routeProps =>
-            <Thanks /> } />
+        {/* <Route path="/shop/thanks" render={ routeProps =>
+            <Thanks /> } /> */}
         <Redirect to="/shop/products" />
     </Switch>
 }
