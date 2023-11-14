@@ -93,5 +93,7 @@
             "price": 100
         }
     ],
-    "count": 17
+    "count": {
+        "total": 13
+    }
 }
