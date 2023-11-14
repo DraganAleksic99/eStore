@@ -10,12 +10,12 @@ export const ShopConnector = () => {
         <Route path="/shop/products/:category?"
             render={ (routeProps) =>
             <Shop { ...routeProps }  />} />
-        
-        <Route path="/shop/cart" render={ (routeProps) =>
-            <CartDetails {...routeProps}/>} />
 
+{/* @ts-ignore */}
+        <Route path="/shop/cart" render={ (routeProps) => <CartDetails {...routeProps}/>} />
         <Route path="/shop/checkout" render={ routeProps =>
             <Checkout { ...routeProps } /> } />
+{/* @ts-ignore */}
 
         <Route path="/shop/thanks" render={ routeProps =>
             <Thanks /> } />
