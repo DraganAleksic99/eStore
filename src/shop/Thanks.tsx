@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export const Thanks = () => {    
     return <div>
         <div className="col bg-dark text-white">
-            <div className="navbar-brand">SPORTS STORE</div>
+            <div className="navbar-brand">E STORE</div>
         </div>
         <div className="m-2 text-center">
             <h2>Thanks!</h2>

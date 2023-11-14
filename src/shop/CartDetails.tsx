@@ -1,15 +1,12 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { CartDetailsRows } from './CartDetailsRows';
-import { CartItem } from "../modules/cart/slice";
+import { useSelector } from "react-redux";
+import { cartSelector, cartItemsSelector, cartPriceSelector } from "../modules/cart/selectors";
 
-type CartDetailsProps = {
-    cartItems: number
-    cart: CartItem[]
-    cartPrice: number
-}
-
-export const CartDetails: React.FC<CartDetailsProps> = ({cartItems, cart, cartPrice}) => {
+export const CartDetails = () => {
+    const cart = useSelector(cartSelector)
+    const cartItems = useSelector(cartItemsSelector)
+    const cartPrice = useSelector(cartPriceSelector)
     const getLinkClasses = () => `btn btn-secondary m-1 ${cartItems === 0 ? "disabled": ""}`;
 
     return (

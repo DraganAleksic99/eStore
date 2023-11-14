@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect} from "react";
 import { ToggleLink } from "../ToggleLink";
 import { useSelector } from "react-redux";
 import { categoriesSelector } from "../modules/loadData/selectors";
+import { fetchCategories } from "../modules/loadData/categoriesSlice";
+import { AppDispatch, useAppDispatch } from "../store";
 
 type CategoryNavigationProps = {
     baseUrl: string
 }
 
 export const CategoryNavigation: React.FC<CategoryNavigationProps> = ({baseUrl}) => {
+    const dispatch: AppDispatch = useAppDispatch();
+    
+    useEffect(() => {
+        dispatch(fetchCategories());
+    },[dispatch]);
+
     const categories = useSelector(categoriesSelector);
 
     return <>

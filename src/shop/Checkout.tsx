@@ -1,17 +1,18 @@
 import React from "react";
 import { ValidatedForm } from "../forms/ValidatedForm";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { cartSelector } from "../modules/cart/selectors";
 import { clearCart } from "../modules/cart/slice";
 import { useAddNewOrderMutation } from "../modules/orders/ordersApi";
 import { CartItem } from "../modules/cart/slice";
 import { RouteComponentProps } from "react-router-dom";
 
 type CheckoutProps = {
-    cart: CartItem[]
     history: RouteComponentProps['history']
 }
 
-export const Checkout: React.FC<CheckoutProps> = ({cart, history}) => {
+export const Checkout: React.FC<CheckoutProps> = ({history}) => {
+    const cart = useSelector(cartSelector)
     const [addNewOrder] = useAddNewOrderMutation();
     const dispatch = useDispatch();
     const defaultAttrs = { type: "text", required: true };

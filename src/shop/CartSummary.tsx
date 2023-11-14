@@ -1,12 +1,11 @@
-import React from 'react';
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { cartPriceSelector, cartItemsSelector } from '../modules/cart/selectors';
 
-type CartSummaryProps = {
-    cartItems: number
-    cartPrice: number
-}
+export const CartSummary = () => {
+    const cartPrice = useSelector(cartPriceSelector)
+    const cartItems = useSelector(cartItemsSelector)
 
-export const CartSummary: React.FC<CartSummaryProps> = ({cartItems, cartPrice}) => {
     const getSummary = () => {
         if (cartItems > 0) {
             return <span>

@@ -4,16 +4,17 @@ import { addToCart } from "../modules/cart/slice";
 import { useDispatch } from "react-redux";
 
 type ProductListProps = {
-    products: Product[]
+    products: Product[] | undefined
 }
 
 export const ProductList: React.FC<ProductListProps> = ({products}) => {
-    const dispatch = useDispatch();
-    if (products === null || products.length === 0) {
+    const dispatch = useDispatch()
+    
+    if (!products || products.length === 0) {
         return <h5 className="p-2">No Products</h5>
     }
     return <>
-    { products.map(p => (
+    { products?.map(p => (
         <div className="card m-1 p-1 bg-light" key={ p.id }>
             <h4>
             { p.name }
