@@ -10,10 +10,11 @@ type PaginationControlsProps = {
     limit: number
 }
 
-export const PaginationControls: React.FC<PaginationControlsProps> = ({currentPage, setPage, setLimit, setSort, setPageCallback, limit}) => {
- 
- const pageSizes = [5, 10, 25];
- const sortKeys = ["Name", "Price"];
+const pageSizes = [5, 10, 25];
+const sortKeys = ["Name", "Price"];
+
+export const PaginationControls: React.FC<PaginationControlsProps> = (props) => {
+ const { currentPage, setPage, setLimit, setSort, setPageCallback, limit } = props
 
  return <div className="m-2">
     <div className="text-center m-1">

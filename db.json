@@ -3,14 +3,14 @@
     "products": [
         {
             "id": 1,
-            "name": "Name",
+            "name": "Alfa",
             "category": "Watersports",
             "description": "Description",
             "price": 100
         },
         {
             "id": 2,
-            "name": "Name",
+            "name": "Beta",
             "category": "Watersports",
             "description": "Description",
             "price": 100
@@ -120,5 +120,6 @@
             "description": "Description",
             "price": 100
         }
-    ]
+    ],
+    "count": 17
 }

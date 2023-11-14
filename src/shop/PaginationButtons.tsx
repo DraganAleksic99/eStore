@@ -1,4 +1,5 @@
 import React from "react";
+import { useGetTotalCountQuery } from "../modules/loadData/productsApi";
 
 type PaginationButtonsProps = {
     setPage: (operand: string) => void
@@ -8,8 +9,12 @@ type PaginationButtonsProps = {
 }
 
 export const PaginationButtons: React.FC<PaginationButtonsProps> = ({currentPage, setPage, setPageCallback, limit}) => {
+    const {data: count} = useGetTotalCountQuery()
+    console.log(count);
+    
+
     const pageNumbers = [];
-    const numberOfPages = Math.ceil(200 / limit);
+    const numberOfPages = Math.ceil(count / limit);
 
     for (let i = 1; i <= numberOfPages; i++) {
         pageNumbers[i] = i;    
@@ -40,7 +45,7 @@ export const PaginationButtons: React.FC<PaginationButtonsProps> = ({currentPage
             </button>
         </>
     }
-    <button disabled={ currentPage === pageNumbers.length } onClick={() => setPage('next')} 
+    <button disabled={ currentPage === pageNumbers.length-1 } onClick={() => setPage('next')} 
         className="btn btn-secondary mx-1">
         Next
     </button>

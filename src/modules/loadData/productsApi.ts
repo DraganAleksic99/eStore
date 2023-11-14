@@ -10,7 +10,10 @@ export const api = createApi({
         getProducts: build.query<Product[], {page: number, limit: number, sort: string}>({
             query: ({page, limit, sort}) => `${url}products?_page=${page}&_limit=${limit}&_sort=${sort}`
         }),
+        getTotalCount: build.query<number, void>({
+            query: () => `${url}/count`
+        })
     }),
 });
 
-export const { useGetProductsQuery } = api;
+export const { useGetProductsQuery, useGetTotalCountQuery } = api;
