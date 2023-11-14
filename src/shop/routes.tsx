@@ -8,7 +8,7 @@ import { Thanks } from "./Thanks"
 export const AppRoutes = () => {
     return (
         <Routes>
-            <Route path="shop/products" element={<Shop />} >
+            <Route path="/" element={<Shop />} >
                 <Route path=":category" element={<Shop />} />
             </Route>
             <Route path="shop/cart" element={<CartDetails />} />
