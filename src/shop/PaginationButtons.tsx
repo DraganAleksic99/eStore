@@ -12,9 +12,10 @@ export const PaginationButtons: React.FC<PaginationButtonsProps> = ({currentPage
     const {data: count} = useGetTotalCountQuery()
     console.log(count);
     
+    const totalCount = count || 5
 
     const pageNumbers = [];
-    const numberOfPages = Math.ceil(count / limit);
+    const numberOfPages = Math.ceil(totalCount / limit);
 
     for (let i = 1; i <= numberOfPages; i++) {
         pageNumbers[i] = i;    

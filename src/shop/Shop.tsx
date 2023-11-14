@@ -22,7 +22,7 @@ export const Shop = ({match}:ShopProps) => {
     const [sort, setSort] = useState('name');
 
     const { data: products } = useGetProductsQuery({page, limit, sort});
-
+//@ts-ignore
     const filteredProducts = filterProducts(products, match.params.category)
 
     const updatePage = (operand: string) => {
