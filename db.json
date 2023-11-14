@@ -92,5 +92,8 @@
             "description": "Description",
             "price": 100
         }
-    ]
+    ],
+    "count": {
+        "total": 13
+    }
 }
