@@ -1,17 +1,20 @@
 import React, { useEffect} from "react";
-import { ToggleLink } from "../ToggleLink";
 import { useSelector } from "react-redux";
 import { categoriesSelector } from "../modules/loadData/selectors";
 import { fetchCategories } from "../modules/loadData/categoriesSlice";
 import { AppDispatch, useAppDispatch } from "../store";
+import { Link } from "react-router-dom";
 
 type CategoryNavigationProps = {
-    baseUrl: string
+    pathname: string
 }
 
-export const CategoryNavigation: React.FC<CategoryNavigationProps> = ({baseUrl}) => {
+export const CategoryNavigation: React.FC<CategoryNavigationProps> = ({ pathname}) => {
     const dispatch: AppDispatch = useAppDispatch();
     
+    console.log(pathname);
+    
+
     useEffect(() => {
         dispatch(fetchCategories());
     },[dispatch]);
@@ -19,12 +22,24 @@ export const CategoryNavigation: React.FC<CategoryNavigationProps> = ({baseUrl})
     const categories = useSelector(categoriesSelector);
 
     return <>
-        <ToggleLink className="btn btn-secondary btn-block" to={ baseUrl } exact={ true }>All</ToggleLink>
+        <Link 
+            className={`btn btn-${pathname === '/shop/products' ? 'primary' : 'secondary'} btn-block`}
+            to='/shop/products'
+        >
+            All
+        </Link>
 
         { categories && categories.map(cat =>
-            <ToggleLink key={ cat } to={ `${baseUrl}/${cat.toLowerCase()}`}>
+            <Link key={ cat }
+                to={ `/shop/products/${cat.toLowerCase()}`}
+                className={
+                    `btn btn-block ${pathname === `/shop/products/${cat.toLowerCase()}`
+                    ? 'btn-primary'
+                    : 'btn-secondary'}`
+                }
+            >
                 { cat }
-            </ToggleLink>
+            </Link>
         )}
     </>
 }

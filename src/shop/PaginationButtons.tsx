@@ -10,7 +10,6 @@ type PaginationButtonsProps = {
 
 export const PaginationButtons: React.FC<PaginationButtonsProps> = ({currentPage, setPage, setPageCallback, limit}) => {
     const {data: count} = useGetTotalCountQuery()
-    console.log(count);
     
     const totalCount = count?.total || 5
 

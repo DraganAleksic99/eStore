@@ -9,7 +9,7 @@ export const Thanks = () => {
             <h2>Thanks!</h2>
             <p>Thanks for placing your order.</p>
             <p>We'll ship your goods as soon as possible.</p>
-            <Link to="/shop" className="btn btn-primary">
+            <Link to="/shop/products" className="btn btn-primary">
                 Return to Store
             </Link>
         </div>

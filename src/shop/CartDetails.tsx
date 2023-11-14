@@ -27,7 +27,7 @@ export const CartDetails = () => {
                 </tbody>
             </table>
             <div className="text-center">
-            <Link className="btn btn-primary m-1" to="/shop">
+            <Link className="btn btn-primary m-1" to="/shop/products">
                 Continue Shopping
             </Link>
             <Link className={ getLinkClasses() } to="/shop/checkout">

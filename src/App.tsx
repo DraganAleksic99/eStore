@@ -1,20 +1,17 @@
-import './App.css';
-import { store } from './store';
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import { ShopConnector } from './shop/ShopConnector';
+import './App.css'
+import { store } from './store'
+import { Provider } from 'react-redux'
+import { BrowserRouter as Router } from "react-router-dom"
+import { AppRoutes } from './shop/routes'
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Switch>
-          <Route path="/shop" component={ShopConnector}/>
-          <Redirect to="/shop" />
-        </Switch>
+        <AppRoutes /> 
       </Router>
     </Provider>
   );
 }
 
-export default App;
+export default App

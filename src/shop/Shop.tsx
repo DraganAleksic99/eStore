@@ -5,25 +5,23 @@ import { CartSummary } from "./CartSummary";
 import { PaginationControls } from "./PaginationControls";
 import { useGetProductsQuery } from "../modules/loadData/productsApi";
 import { Product } from "../types";
-import { RouteComponentProps } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 const filterProducts = (products: Product[] = [], category?: string) =>
  (!category || category === "All")
  ? products
  : products.filter(p => p.category.toLowerCase() === category.toLowerCase());
 
- type ShopProps = {
-    match: RouteComponentProps['match']
- }
+export const Shop = () => {
+    const [page, setPage] = useState(1)
+    const [limit, setLimit] = useState(5)
+    const [sort, setSort] = useState('name')
+    const { category } = useParams()
+    const { pathname } = useLocation()
 
-export const Shop = ({match}:ShopProps) => {
-    const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(5);
-    const [sort, setSort] = useState('name');
+    const { data: products } = useGetProductsQuery({page, limit, sort})
 
-    const { data: products } = useGetProductsQuery({page, limit, sort});
-//@ts-ignore
-    const filteredProducts = filterProducts(products, match.params.category)
+    const filteredProducts = filterProducts(products, category)
 
     const updatePage = (operand: string) => {
         if (operand === 'next') {
@@ -44,7 +42,7 @@ export const Shop = ({match}:ShopProps) => {
             </div>
             <div className="row">
                 <div className="col-3 p-2">
-                    <CategoryNavigation baseUrl="/shop/products" />
+                    <CategoryNavigation  pathname={pathname} />
                 </div>
                 <div className="col-9 p-2">
                     <PaginationControls

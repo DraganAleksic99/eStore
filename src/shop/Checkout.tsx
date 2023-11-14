@@ -1,17 +1,13 @@
-import React from "react";
 import { ValidatedForm } from "../forms/ValidatedForm";
 import { useDispatch, useSelector } from "react-redux";
 import { cartSelector } from "../modules/cart/selectors";
 import { clearCart } from "../modules/cart/slice";
 import { useAddNewOrderMutation } from "../modules/orders/ordersApi";
 import { CartItem } from "../modules/cart/slice";
-import { RouteComponentProps } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-type CheckoutProps = {
-    history: RouteComponentProps['history']
-}
-
-export const Checkout: React.FC<CheckoutProps> = ({history}) => {
+export const Checkout = () => {
+    const navigate = useNavigate()
     const cart = useSelector(cartSelector)
     const [addNewOrder] = useAddNewOrderMutation();
     const dispatch = useDispatch();
@@ -26,7 +22,7 @@ export const Checkout: React.FC<CheckoutProps> = ({history}) => {
     ]
 
     const handleCancel = () => {
-        history.push('/shop/cart')
+        navigate('/shop/cart')
     }
 
     const handleSubmit = (formData: {}) => {
@@ -34,7 +30,7 @@ export const Checkout: React.FC<CheckoutProps> = ({history}) => {
             ({ quantity: item.quantity, product_id: item.product.id})) }
         addNewOrder(order);
         dispatch(clearCart());
-        history.push('/shop/thanks');
+        navigate('/shop/thanks');
     }
     return  <div className="container-fluid">
         <div className="row">
