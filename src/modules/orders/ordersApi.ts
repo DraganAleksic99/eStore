@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const url = 'https://my-json-server.typicode.com/DraganAleksic99/estore/'
 
-export const pApi = createApi({
+export const ordersApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: url }),
   reducerPath: 'ordersApi',
   tagTypes: ['Post'],
@@ -24,4 +24,4 @@ export const pApi = createApi({
   })
 })
 
-export const { useAddNewOrderMutation, useGetOrdersQuery } = pApi
+export const { useAddNewOrderMutation, useGetOrdersQuery } = ordersApi
