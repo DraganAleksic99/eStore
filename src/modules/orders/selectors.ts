@@ -1,3 +1,3 @@
-import { RootState } from "../../store";
+import { RootState } from '../../store'
 
 export const ordersSelector = (state: RootState) => state.ordersApi

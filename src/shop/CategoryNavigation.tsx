@@ -1,45 +1,46 @@
-import React, { useEffect} from "react";
-import { useSelector } from "react-redux";
-import { categoriesSelector } from "../modules/loadData/selectors";
-import { fetchCategories } from "../modules/loadData/categoriesSlice";
-import { AppDispatch, useAppDispatch } from "../store";
-import { Link } from "react-router-dom";
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { categoriesSelector } from '../modules/loadData/selectors'
+import { fetchCategories } from '../modules/loadData/categoriesSlice'
+import { AppDispatch, useAppDispatch } from '../store'
+import { Link } from 'react-router-dom'
 
 type CategoryNavigationProps = {
-    pathname: string
+  pathname: string
 }
 
-export const CategoryNavigation: React.FC<CategoryNavigationProps> = ({ pathname}) => {
-    const dispatch: AppDispatch = useAppDispatch();
-    
-    console.log(pathname);
-    
+export const CategoryNavigation: React.FC<CategoryNavigationProps> = ({ pathname }) => {
+  const dispatch: AppDispatch = useAppDispatch()
 
-    useEffect(() => {
-        dispatch(fetchCategories());
-    },[dispatch]);
+  console.log(pathname)
 
-    const categories = useSelector(categoriesSelector);
+  useEffect(() => {
+    dispatch(fetchCategories())
+  }, [dispatch])
 
-    return <>
-        <Link 
-            className={`btn btn-${pathname === '/shop/products' ? 'primary' : 'secondary'} btn-block`}
-            to='/shop/products'
-        >
-            All
-        </Link>
+  const categories = useSelector(categoriesSelector)
 
-        { categories && categories.map(cat =>
-            <Link key={ cat }
-                to={ `/shop/products/${cat.toLowerCase()}`}
-                className={
-                    `btn btn-block ${pathname === `/shop/products/${cat.toLowerCase()}`
-                    ? 'btn-primary'
-                    : 'btn-secondary'}`
-                }
-            >
-                { cat }
-            </Link>
-        )}
+  return (
+    <>
+      <Link
+        className={`btn btn-${pathname === '/shop/products' ? 'primary' : 'secondary'} btn-block`}
+        to="/shop/products"
+      >
+        All
+      </Link>
+
+      {categories &&
+        categories.map(cat => (
+          <Link
+            key={cat}
+            to={`/shop/products/${cat.toLowerCase()}`}
+            className={`btn btn-block ${
+              pathname === `/shop/products/${cat.toLowerCase()}` ? 'btn-primary' : 'btn-secondary'
+            }`}
+          >
+            {cat}
+          </Link>
+        ))}
     </>
+  )
 }

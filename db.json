@@ -1,21 +1,99 @@
 {
-    "categories": ["Watersports", "Soccer", "Chess", "Running"],
-    "products": [
-        { "id": "WS001", "name": "Aqua Glide Kayak", "category": "Watersports", "description": "A two-person inflatable kayak for lake and river adventures.", "price": 299.99 },
-        { "id": "WS002", "name": "Hydro Pro Swim Goggles", "category": "Watersports", "description": "Anti-fog swim goggles with UV protection.", "price": 19.99 },
-        { "id": "SC001", "name": "Striker Pro Soccer Ball", "category": "Soccer", "description": "A size 5 professional-grade soccer ball for competitive play.", "price": 49.99 },
-        { "id": "SC002", "name": "Goalkeeper Gloves", "category": "Soccer", "description": "High-grip gloves for goalkeepers, offering excellent shock absorption.", "price": 34.99 },
-        { "id": "CH001", "name": "Grandmaster Chess Set", "category": "Chess", "description": "A tournament-sized wooden chess set with hand-carved pieces.", "price": 79.99 },
-        { "id": "CH002", "name": "Beginner's Chess Book", "category": "Chess", "description": "An introductory guide to chess, perfect for beginners of all ages.", "price": 14.99 },
-        { "id": "RN001", "name": "Speedster Running Shoes", "category": "Running", "description": "Lightweight running shoes with superior cushioning for long-distance runners.", "price": 119.99 },
-        { "id": "RN002", "name": "Hydration Running Belt", "category": "Running", "description": "A comfortable belt with holders for water bottles and a pocket for essentials.", "price": 24.99 },
-        { "id": "WS003", "name": "Surfboard", "category": "Watersports", "description": "A high-performance board for all wave conditions.", "price": 499.99 },
-        { "id": "SC003", "name": "Soccer Cleats", "category": "Soccer", "description": "Durable and comfortable soccer shoes for optimal field performance.", "price": 89.99 },
-        { "id": "CH003", "name": "Chess Clock", "category": "Chess", "description": "A dual timer clock for keeping track of each player's time.", "price": 29.99 },
-        { "id": "RN003", "name": "Running Shorts", "category": "Running", "description": "Breathable running shorts with a built-in liner.", "price": 24.99 },
-        { "id": "RN004", "name": "Wireless Earbuds", "category": "Running", "description": "Water-resistant wireless earbuds with long battery life.", "price": 59.99 }
-    ],
-    "count": {
-        "total": 13
+  "categories": ["Watersports", "Soccer", "Chess", "Running"],
+  "products": [
+    {
+      "id": "WS001",
+      "name": "Aqua Glide Kayak",
+      "category": "Watersports",
+      "description": "A two-person inflatable kayak for lake and river adventures.",
+      "price": 299.99
+    },
+    {
+      "id": "WS002",
+      "name": "Hydro Pro Swim Goggles",
+      "category": "Watersports",
+      "description": "Anti-fog swim goggles with UV protection.",
+      "price": 19.99
+    },
+    {
+      "id": "SC001",
+      "name": "Striker Pro Soccer Ball",
+      "category": "Soccer",
+      "description": "A size 5 professional-grade soccer ball for competitive play.",
+      "price": 49.99
+    },
+    {
+      "id": "SC002",
+      "name": "Goalkeeper Gloves",
+      "category": "Soccer",
+      "description": "High-grip gloves for goalkeepers, offering excellent shock absorption.",
+      "price": 34.99
+    },
+    {
+      "id": "CH001",
+      "name": "Grandmaster Chess Set",
+      "category": "Chess",
+      "description": "A tournament-sized wooden chess set with hand-carved pieces.",
+      "price": 79.99
+    },
+    {
+      "id": "CH002",
+      "name": "Beginner's Chess Book",
+      "category": "Chess",
+      "description": "An introductory guide to chess, perfect for beginners of all ages.",
+      "price": 14.99
+    },
+    {
+      "id": "RN001",
+      "name": "Speedster Running Shoes",
+      "category": "Running",
+      "description": "Lightweight running shoes with superior cushioning for long-distance runners.",
+      "price": 119.99
+    },
+    {
+      "id": "RN002",
+      "name": "Hydration Running Belt",
+      "category": "Running",
+      "description": "A comfortable belt with holders for water bottles and a pocket for essentials.",
+      "price": 24.99
+    },
+    {
+      "id": "WS003",
+      "name": "Surfboard",
+      "category": "Watersports",
+      "description": "A high-performance board for all wave conditions.",
+      "price": 499.99
+    },
+    {
+      "id": "SC003",
+      "name": "Soccer Cleats",
+      "category": "Soccer",
+      "description": "Durable and comfortable soccer shoes for optimal field performance.",
+      "price": 89.99
+    },
+    {
+      "id": "CH003",
+      "name": "Chess Clock",
+      "category": "Chess",
+      "description": "A dual timer clock for keeping track of each player's time.",
+      "price": 29.99
+    },
+    {
+      "id": "RN003",
+      "name": "Running Shorts",
+      "category": "Running",
+      "description": "Breathable running shorts with a built-in liner.",
+      "price": 24.99
+    },
+    {
+      "id": "RN004",
+      "name": "Wireless Earbuds",
+      "category": "Running",
+      "description": "Water-resistant wireless earbuds with long battery life.",
+      "price": 59.99
     }
+  ],
+  "count": {
+    "total": 13
+  }
 }
