@@ -8,7 +8,7 @@ export const ordersApi = createApi({
   tagTypes: ['Post'],
   endpoints: build => ({
     getOrders: build.query({
-      query: () => `${url}orders`
+      query: () => `orders`
     }),
     addNewOrder: build.mutation({
       query: payload => ({

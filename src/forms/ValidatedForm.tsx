@@ -42,6 +42,8 @@ export const ValidatedForm: React.FC<ValidatedFormProps> = props => {
         }))
       ]
       const data = Object.assign(arr)
+      console.log(data)
+
       submitCallback(data)
     }
   }

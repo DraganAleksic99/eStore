@@ -25,7 +25,7 @@ export const Checkout = () => {
     navigate('/shop/cart')
   }
 
-  const handleSubmit = (formData: {}) => {
+  const handleSubmit = async (formData: {}) => {
     const order = {
       ...formData,
       products: cart.map((item: CartItem) => ({
@@ -33,7 +33,8 @@ export const Checkout = () => {
         product_id: item.product.id
       }))
     }
-    addNewOrder(order)
+
+    const newOrder = await addNewOrder(order).unwrap()
     dispatch(clearCart())
     navigate('/shop/thanks')
   }
