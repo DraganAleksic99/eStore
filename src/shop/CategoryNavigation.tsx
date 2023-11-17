@@ -11,14 +11,11 @@ type CategoryNavigationProps = {
 
 export const CategoryNavigation: React.FC<CategoryNavigationProps> = ({ pathname }) => {
   const dispatch: AppDispatch = useAppDispatch()
-
-  console.log(pathname)
+  const categories = useSelector(categoriesSelector)
 
   useEffect(() => {
     dispatch(fetchCategories())
   }, [dispatch])
-
-  const categories = useSelector(categoriesSelector)
 
   return (
     <>

@@ -18,9 +18,7 @@ export const Shop = () => {
   const [sort, setSort] = useState('name')
   const { category } = useParams()
   const { pathname } = useLocation()
-
   const { data: products } = useGetProductsQuery({ page, limit, sort })
-
   const filteredProducts = filterProducts(products, category)
 
   const updatePage = (operand: string) => {
