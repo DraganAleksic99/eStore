@@ -12,7 +12,7 @@ export const store = configureStore({
     loadCategories: loadCategoriesReducer,
     handleCart: cartReducer
   },
-  middleware: gDM => gDM().concat(api.middleware).concat(pApi.middleware)
+  middleware: gDM => gDM().concat(api.middleware).concat(ordersApi.middleware)
 })
 
 export type RootState = ReturnType<typeof store.getState>
