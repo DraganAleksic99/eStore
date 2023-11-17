@@ -3,12 +3,12 @@ import cartReducer from './modules/cart/slice'
 import loadCategoriesReducer from './modules/loadData/categoriesSlice'
 import { useDispatch } from 'react-redux'
 import { api } from './modules/loadData/productsApi'
-import { pApi } from './modules/orders/ordersApi'
+import { ordersApi } from './modules/orders/ordersApi'
 
 export const store = configureStore({
   reducer: {
     [api.reducerPath]: api.reducer,
-    [pApi.reducerPath]: pApi.reducer,
+    [ordersApi.reducerPath]: ordersApi.reducer,
     loadCategories: loadCategoriesReducer,
     handleCart: cartReducer
   },
