@@ -35,6 +35,8 @@ export const Checkout = () => {
     }
 
     const newOrder = await addNewOrder(order).unwrap()
+    console.log(newOrder)
+
     dispatch(clearCart())
     navigate('/shop/thanks')
   }
