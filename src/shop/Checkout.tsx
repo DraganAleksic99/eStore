@@ -34,7 +34,6 @@ export const Checkout = () => {
         product_id: item.product.id
       }))
     }
-    console.log(order)
 
     const newOrder = await addNewOrder(JSON.stringify(order)).unwrap()
     console.log(newOrder)
