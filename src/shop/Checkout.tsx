@@ -1,31 +1,48 @@
-import { ValidatedForm } from '../forms/ValidatedForm'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartSelector } from '../modules/cart/selectors'
 import { clearCart } from '../modules/cart/slice'
 import { useAddNewOrderMutation } from '../modules/orders/ordersApi'
 import { CartItem } from '../modules/cart/slice'
 import { useNavigate } from 'react-router-dom'
+import { useForm, SubmitHandler } from 'react-hook-form'
+import { Input } from './Input'
+
+export interface IFormInput {
+  name: string
+  email: string
+  adress: string
+  city: string
+  zipCode: string
+  country: string
+}
+
+const inputs = ['name', 'email', 'adress', 'city', 'zipCode', 'country']
 
 export const Checkout = () => {
   const navigate = useNavigate()
   const cart = useSelector(cartSelector)
   const [addNewOrder] = useAddNewOrderMutation()
   const dispatch = useDispatch()
-  const defaultAttrs = { type: 'text', required: true }
-  const formModel = [
-    { label: 'Name' },
-    { label: 'Email', attrs: { type: 'email' } },
-    { label: 'Address' },
-    { label: 'City' },
-    { label: 'Zip/Postal Code', name: 'zip' },
-    { label: 'Country' }
-  ]
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<IFormInput>({
+    defaultValues: {
+      name: '',
+      email: '',
+      adress: '',
+      city: '',
+      zipCode: '',
+      country: ''
+    }
+  })
 
   const handleCancel = () => {
     navigate('/shop/cart')
   }
 
-  const handleSubmit = async (formData: {}) => {
+  const onSubmit: SubmitHandler<IFormInput> = async (formData: {}) => {
     const order = {
       id: 1,
       ...formData,
@@ -36,11 +53,13 @@ export const Checkout = () => {
     }
 
     const newOrder = await addNewOrder(JSON.stringify(order)).unwrap()
-    console.log(newOrder)
 
     dispatch(clearCart())
-    navigate('/shop/thanks')
+    navigate('/shop/thanks', { state: newOrder })
   }
+
+  console.log(errors)
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -50,14 +69,15 @@ export const Checkout = () => {
       </div>
       <div className="row">
         <div className="col m-2">
-          <ValidatedForm
-            formModel={formModel}
-            defaultAttrs={defaultAttrs}
-            submitCallback={handleSubmit}
-            cancelCallback={handleCancel}
-            submitText="Place Order"
-            cancelText="Return to Cart"
-          />
+          <form onSubmit={handleSubmit(data => onSubmit(data))}>
+            {inputs.map(input => (
+              <Input name={input} register={register} errors={errors} />
+            ))}
+            <button className="btn btn-secondary m-1">Submit</button>
+            <button type="button" className="btn btn-secondary m-1" onClick={handleCancel}>
+              Cancel
+            </button>
+          </form>
         </div>
       </div>
     </div>

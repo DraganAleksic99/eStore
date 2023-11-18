@@ -1,6 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export const Thanks = () => {
+  const { state } = useLocation()
+  console.log(state)
+
   return (
     <div>
       <div className="col bg-dark text-white">
