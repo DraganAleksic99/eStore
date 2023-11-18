@@ -27,6 +27,7 @@ export const Checkout = () => {
 
   const handleSubmit = async (formData: {}) => {
     const order = {
+      id: 1,
       ...formData,
       products: cart.map((item: CartItem) => ({
         quantity: item.quantity,
