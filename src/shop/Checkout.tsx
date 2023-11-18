@@ -33,8 +33,9 @@ export const Checkout = () => {
         product_id: item.product.id
       }))
     }
+    console.log(order)
 
-    const newOrder = await addNewOrder(JSON.stringify(order)).unwrap()
+    const newOrder = await addNewOrder(JSON.stringify({ name: 'Dragan' })).unwrap()
     console.log(newOrder)
 
     dispatch(clearCart())
