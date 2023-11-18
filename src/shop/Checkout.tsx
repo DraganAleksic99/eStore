@@ -34,7 +34,7 @@ export const Checkout = () => {
       }))
     }
 
-    const newOrder = await addNewOrder(order).unwrap()
+    const newOrder = await addNewOrder(JSON.stringify(order)).unwrap()
     console.log(newOrder)
 
     dispatch(clearCart())
