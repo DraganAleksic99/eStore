@@ -5,9 +5,11 @@ export const Thanks = () => {
   console.log(state)
 
   return (
-    <div>
-      <div className="col bg-dark text-white">
-        <div className="navbar-brand">E STORE</div>
+    <div className="container-fluid">
+      <div className="row justify-content-center">
+        <div className="col-lg-8 bg-dark text-white">
+          <div className="navbar-brand">E STORE</div>
+        </div>
       </div>
       <div className="m-2 text-center">
         <h2>Thanks!</h2>

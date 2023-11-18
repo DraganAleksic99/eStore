@@ -1,8 +1,8 @@
 import { IFormInput } from './Checkout'
-import { UseFormRegister } from 'react-hook-form'
+import { UseFormRegister, Path } from 'react-hook-form'
 
 type InputProps = {
-  name: string
+  name: Path<IFormInput>
   register: UseFormRegister<IFormInput>
   errors: any
 }
@@ -10,13 +10,16 @@ type InputProps = {
 export const Input: React.FC<InputProps> = ({ name, register, errors }) => {
   return (
     <>
-      <label htmlFor={`${name}`}>{name.charAt(0).toUpperCase() + name.slice(1)}</label>
-      <input
-        {...register(`${name}`, {
-          required: `${name.charAt(0).toUpperCase() + name.slice(1)} is required`
-        })}
-      />
-      <p>{errors[name]?.message}</p>
+      <div className="form-control" key={name}>
+        <label htmlFor={`${name}`}>{name.charAt(0).toUpperCase() + name.slice(1)}</label>
+        <input
+          className="form-control"
+          {...register(`${name}`, {
+            required: `${name.charAt(0).toUpperCase() + name.slice(1)} is required`
+          })}
+        />
+        <p>{errors[name]?.message}</p>
+      </div>
     </>
   )
 }

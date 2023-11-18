@@ -6,11 +6,13 @@ import { AppRoutes } from './shop/routes'
 
 function App() {
   return (
-    <Provider store={store}>
-      <Router>
-        <AppRoutes />
-      </Router>
-    </Provider>
+    <div className="app">
+      <Provider store={store}>
+        <Router>
+          <AppRoutes />
+        </Router>
+      </Provider>
+    </div>
   )
 }
 

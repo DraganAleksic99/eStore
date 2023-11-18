@@ -13,7 +13,6 @@ export const AppRoutes = () => {
         <Route path=":category" element={<Shop />} />
       </Route>
       <Route path="shop/cart" element={<CartDetails />} />
-      <Route path="shop/cart" element={<CartDetails />} />
       <Route path="shop/checkout" element={<Checkout />} />
       <Route path="shop/thanks" element={<Thanks />} />
       <Route path="*" element={<NotFound />} />

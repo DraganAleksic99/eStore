@@ -32,17 +32,17 @@ export const Shop = () => {
 
   return (
     <div className="container-fluid">
-      <div className="row">
-        <div className="col bg-dark text-white">
+      <div className="row justify-content-center">
+        <div className="col-lg-9 bg-dark text-white">
           <div className="navbar-brand">E STORE</div>
           <CartSummary />
         </div>
       </div>
-      <div className="row">
-        <div className="col-3 p-2">
+      <div className="row justify-content-center">
+        <div className="col-lg-2 p-2">
           <CategoryNavigation pathname={pathname} />
         </div>
-        <div className="col-9 p-2">
+        <div className="col-lg-7 p-2">
           <PaginationControls
             setPage={updatePage}
             currentPage={page}

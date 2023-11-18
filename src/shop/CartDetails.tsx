@@ -10,8 +10,13 @@ export const CartDetails = () => {
   const getLinkClasses = () => `btn btn-secondary m-1 ${cartItems === 0 ? 'disabled' : ''}`
 
   return (
-    <div className="m-3">
-      <h2 className="text-center">Your Cart</h2>
+    <div className="col-lg-9">
+      <div className="row">
+        <div className="col bg-dark text-white">
+          <div className="navbar-brand">E STORE</div>
+        </div>
+      </div>
+      <h2 className="text-center m-3">Your Cart</h2>
       <table className="table table-bordered table-striped">
         <thead>
           <tr>

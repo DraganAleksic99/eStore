@@ -16,8 +16,6 @@ export interface IFormInput {
   country: string
 }
 
-const inputs = ['name', 'email', 'adress', 'city', 'zipCode', 'country']
-
 export const Checkout = () => {
   const navigate = useNavigate()
   const cart = useSelector(cartSelector)
@@ -58,25 +56,28 @@ export const Checkout = () => {
     navigate('/shop/thanks', { state: newOrder })
   }
 
-  console.log(errors)
-
   return (
     <div className="container-fluid">
-      <div className="row">
-        <div className="col bg-dark text-white">
+      <div className="row justify-content-center">
+        <div className="col-lg-9 bg-dark text-white">
           <div className="navbar-brand">E STORE</div>
         </div>
       </div>
-      <div className="row">
-        <div className="col m-2">
+      <div className="row justify-content-center">
+        <div className="col-lg-9 m-2">
           <form onSubmit={handleSubmit(data => onSubmit(data))}>
-            {inputs.map(input => (
-              <Input name={input} register={register} errors={errors} />
-            ))}
-            <button className="btn btn-secondary m-1">Submit</button>
-            <button type="button" className="btn btn-secondary m-1" onClick={handleCancel}>
-              Cancel
-            </button>
+            <Input name="name" register={register} errors={errors} />
+            <Input name="email" register={register} errors={errors} />
+            <Input name="adress" register={register} errors={errors} />
+            <Input name="city" register={register} errors={errors} />
+            <Input name="zipCode" register={register} errors={errors} />
+            <Input name="country" register={register} errors={errors} />
+            <div className="text-center mt-3">
+              <button className="btn btn-secondary m-1">Submit</button>
+              <button type="button" className="btn btn-secondary m-1" onClick={handleCancel}>
+                Cancel
+              </button>
+            </div>
           </form>
         </div>
       </div>
