@@ -1,5 +1,6 @@
 import { IFormInput } from './Checkout'
 import { UseFormRegister, Path } from 'react-hook-form'
+import './Input.css'
 
 type InputProps = {
   name: Path<IFormInput>
@@ -10,15 +11,15 @@ type InputProps = {
 export const Input: React.FC<InputProps> = ({ name, register, errors }) => {
   return (
     <>
-      <div className="form-control" key={name}>
-        <label htmlFor={`${name}`}>{name.charAt(0).toUpperCase() + name.slice(1)}</label>
+      <div className="form-control mb-2" key={name}>
+        <label htmlFor={`${name}`}>{name}</label>
         <input
-          className="form-control"
-          {...register(`${name}`, {
-            required: `${name.charAt(0).toUpperCase() + name.slice(1)} is required`
-          })}
+          className={`form-control ${errors[name] && 'input'}`}
+          {...register(`${name}`)}
+          id={`${name}`}
+          placeholder={`${name}`}
         />
-        <p>{errors[name]?.message}</p>
+        <p style={{ marginTop: '5px' }}>{errors[name]?.message}</p>
       </div>
     </>
   )

@@ -54,8 +54,8 @@ export const slice = createSlice({
         : state.cartPrice
       state.cart = state.cart.filter(item => item !== selection)
     },
-    clearCart: state => {
-      state = { ...state, cart: [], cartItems: 0, cartPrice: 0 }
+    clearCart: () => {
+      return { cart: [], cartItems: 0, cartPrice: 0 }
     }
   }
 })

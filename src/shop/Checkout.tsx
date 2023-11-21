@@ -6,15 +6,26 @@ import { CartItem } from '../modules/cart/slice'
 import { useNavigate } from 'react-router-dom'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { Input } from './Input'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as Yup from 'yup'
 
 export interface IFormInput {
-  name: string
-  email: string
-  adress: string
-  city: string
-  zipCode: string
-  country: string
+  Name: string
+  Email: string
+  Adress: string
+  City: string
+  ZipCode: string
+  Country: string
 }
+
+const schema = Yup.object({
+  Name: Yup.string().max(255).required(),
+  Email: Yup.string().email().max(255).required(),
+  Adress: Yup.string().max(255).required(),
+  City: Yup.string().max(255).required(),
+  ZipCode: Yup.string().max(255).required(),
+  Country: Yup.string().max(255).required()
+}).required()
 
 export const Checkout = () => {
   const navigate = useNavigate()
@@ -27,13 +38,14 @@ export const Checkout = () => {
     formState: { errors }
   } = useForm<IFormInput>({
     defaultValues: {
-      name: '',
-      email: '',
-      adress: '',
-      city: '',
-      zipCode: '',
-      country: ''
-    }
+      Name: '',
+      Email: '',
+      Adress: '',
+      City: '',
+      ZipCode: '',
+      Country: ''
+    },
+    resolver: yupResolver(schema)
   })
 
   const handleCancel = () => {
@@ -66,12 +78,12 @@ export const Checkout = () => {
       <div className="row justify-content-center">
         <div className="col-lg-9 m-2">
           <form onSubmit={handleSubmit(data => onSubmit(data))}>
-            <Input name="name" register={register} errors={errors} />
-            <Input name="email" register={register} errors={errors} />
-            <Input name="adress" register={register} errors={errors} />
-            <Input name="city" register={register} errors={errors} />
-            <Input name="zipCode" register={register} errors={errors} />
-            <Input name="country" register={register} errors={errors} />
+            <Input name="Name" register={register} errors={errors} />
+            <Input name="Email" register={register} errors={errors} />
+            <Input name="Adress" register={register} errors={errors} />
+            <Input name="City" register={register} errors={errors} />
+            <Input name="ZipCode" register={register} errors={errors} />
+            <Input name="Country" register={register} errors={errors} />
             <div className="text-center mt-3">
               <button className="btn btn-secondary m-1">Submit</button>
               <button type="button" className="btn btn-secondary m-1" onClick={handleCancel}>
