@@ -26,18 +26,30 @@ export const CategoryNavigation: React.FC<CategoryNavigationProps> = ({ pathname
         All
       </Link>
 
-      {categories &&
-        categories.map(cat => (
-          <Link
-            key={cat}
-            to={`/shop/products/${cat.toLowerCase()}`}
-            className={`btn btn-block ${
-              pathname === `/shop/products/${cat.toLowerCase()}` ? 'btn-primary' : 'btn-secondary'
-            }`}
-          >
-            {cat}
-          </Link>
-        ))}
+      {categories.length
+        ? categories.map(cat => (
+            <Link
+              key={cat}
+              to={`/shop/products/${cat.toLowerCase()}`}
+              className={`btn btn-block ${
+                pathname === `/shop/products/${cat.toLowerCase()}` ? 'btn-primary' : 'btn-secondary'
+              }`}
+            >
+              {cat}
+            </Link>
+          ))
+        : Array(4)
+            .fill('')
+            .map((_, i) => (
+              <Link
+                key={i}
+                to={'/'}
+                className="btn btn-block btn-secondary"
+                style={{ color: 'transparent' }}
+              >
+                Category
+              </Link>
+            ))}
     </>
   )
 }

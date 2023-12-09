@@ -12,7 +12,7 @@ import * as Yup from 'yup'
 export interface IFormInput {
   Name: string
   Email: string
-  Adress: string
+  Address: string
   City: string
   ZipCode: string
   Country: string
@@ -21,7 +21,7 @@ export interface IFormInput {
 const schema = Yup.object({
   Name: Yup.string().max(255).required(),
   Email: Yup.string().email().max(255).required(),
-  Adress: Yup.string().max(255).required(),
+  Address: Yup.string().max(255).required(),
   City: Yup.string().max(255).required(),
   ZipCode: Yup.string().max(255).required(),
   Country: Yup.string().max(255).required()
@@ -40,7 +40,7 @@ export const Checkout = () => {
     defaultValues: {
       Name: '',
       Email: '',
-      Adress: '',
+      Address: '',
       City: '',
       ZipCode: '',
       Country: ''
@@ -58,7 +58,8 @@ export const Checkout = () => {
       ...formData,
       products: cart.map((item: CartItem) => ({
         quantity: item.quantity,
-        product_id: item.product.id
+        product_id: item.product.id,
+        name: item.product.name
       }))
     }
 
@@ -80,7 +81,7 @@ export const Checkout = () => {
           <form onSubmit={handleSubmit(data => onSubmit(data))}>
             <Input name="Name" register={register} errors={errors} />
             <Input name="Email" register={register} errors={errors} />
-            <Input name="Adress" register={register} errors={errors} />
+            <Input name="Address" register={register} errors={errors} />
             <Input name="City" register={register} errors={errors} />
             <Input name="ZipCode" register={register} errors={errors} />
             <Input name="Country" register={register} errors={errors} />

@@ -28,7 +28,7 @@ export const PaginationControls: React.FC<PaginationControlsProps> = props => {
       </div>
       <div className="form-inline justify-content-center">
         <select
-          className="form-control"
+          className="form-control m-1"
           onChange={e => setLimit(Number(e.target.value))}
           value={limit}
         >
@@ -38,7 +38,7 @@ export const PaginationControls: React.FC<PaginationControlsProps> = props => {
             </option>
           ))}
         </select>
-        <select className="form-control" onChange={e => setSort(e.target.value)}>
+        <select className="form-control m-1" onChange={e => setSort(e.target.value)}>
           {sortKeys.map(k => (
             <option value={k.toLowerCase()} key={k}>
               Sort By {k}

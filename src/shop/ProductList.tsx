@@ -11,7 +11,7 @@ export const ProductList: React.FC<ProductListProps> = ({ products }) => {
   const dispatch = useDispatch()
 
   if (!products || products.length === 0) {
-    return <h5 className="p-2">No Products</h5>
+    return null
   }
   return (
     <>

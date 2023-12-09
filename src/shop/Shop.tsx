@@ -18,7 +18,12 @@ export const Shop = () => {
   const [sort, setSort] = useState('name')
   const { category } = useParams()
   const { pathname } = useLocation()
-  const { data: products } = useGetProductsQuery({ page, limit, sort })
+  const {
+    data: products,
+    isLoading,
+    isSuccess,
+    isError
+  } = useGetProductsQuery({ page, limit, sort })
   const filteredProducts = filterProducts(products, category)
 
   const updatePage = (operand: string) => {
@@ -29,6 +34,34 @@ export const Shop = () => {
       setPage(page - 1)
     }
   }
+
+  let productsList
+
+  if (isError) productsList = <p>Something went wrong</p>
+
+  if (isLoading) {
+    productsList = Array(limit)
+      .fill('')
+      .map((_, i: number) => (
+        <div className="card m-1 p-1 bg-light h-15 loading" key={i}>
+          <h4>
+            Title
+            <span
+              className="badge badge-pill badge-primary float-right"
+              style={{ color: 'transparent' }}
+            >
+              $100.00
+            </span>
+          </h4>
+          <div className="card-text bg-white p-1">
+            Description
+            <button className="btn btn-success btn-sm float-right">Add To Cart</button>
+          </div>
+        </div>
+      ))
+  }
+
+  if (isSuccess) productsList = <ProductList products={filteredProducts} />
 
   return (
     <div className="container-fluid">
@@ -51,7 +84,7 @@ export const Shop = () => {
             setSort={setSort}
             setPageCallback={setPage}
           />
-          <ProductList products={filteredProducts} />
+          {productsList}
         </div>
       </div>
     </div>

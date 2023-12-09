@@ -9,3 +9,11 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.loading {
+  color: transparent;
+}
+
+a .loading {
+  color: transparent;
+}
